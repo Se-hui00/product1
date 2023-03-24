@@ -10,7 +10,7 @@ create table product(
 );
 
 --기본키
-alter table product add constraint product_pid_pk primairy key(pid);
+alter table product add constraint product_pid_pk primary key(pid);
 
 --시퀸스
 drop sequence product_pid_seq;
@@ -43,6 +43,6 @@ delete from product where pid = 4;
 select pid, pname, quantity, price from product;
 
 --상품 존재 유무
-select count(*) from product where pid = '6';
+select count(*) from product where pid = 6;
 
 commit;

@@ -15,7 +15,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.LinkedHashMap;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -62,11 +63,11 @@ public class ProductDAOImpl implements ProductDAO {
     StringBuffer sb = new StringBuffer();
     sb.append("select pid, pname, quantity, price ");
     sb.append("  from product ");
-    sb.append(" where pid = :pid ");
+    sb.append(" where pid = :id ");
 
     //2.파라미터 값을 매핑 -case1)Map
     try {
-      Map<String, Long> param = Map.of("pid", pid); //(key, value)
+      Map<String, Long> param = Map.of("id", pid); //(key, value)
       Product product = template.queryForObject(
           sb.toString(), param, productRowMapper()      //(쿼리, 파라미터, 받아올 값) //수동매핑
       );
@@ -76,6 +77,18 @@ public class ProductDAOImpl implements ProductDAO {
     }
   }
 
+  class RowMapperImpl implements RowMapper<Product> {
+
+    @Override
+    public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+      Product product = new Product();
+      product.setPid(rs.getLong("pid"));
+      product.setPname(rs.getString("pname"));
+      product.setQuantity(rs.getLong("quantity"));
+      product.setPrice(rs.getLong("price"));
+      return product;
+    }
+  }
   //2-1.수동 매핑
   private RowMapper<Product> productRowMapper() {
 
@@ -104,11 +117,11 @@ public class ProductDAOImpl implements ProductDAO {
     sb.append("   set pname    = :pname, ");
     sb.append("       quantity = :quantity, ");
     sb.append("       price    = :price ");
-    sb.append(" where pid = :pid ");
+    sb.append(" where pid = :id ");
 
     //2.파라미터 값을 매핑 -case3)SqlParameterSource
     SqlParameterSource param = new MapSqlParameterSource() //(key, value)
-        .addValue("pid", pid)
+        .addValue("id", pid)
         .addValue("pname", product.getPname())
         .addValue("quantity", product.getQuantity())
         .addValue("price", product.getPrice());
@@ -124,26 +137,26 @@ public class ProductDAOImpl implements ProductDAO {
   @Override
   public int delete(Long pid) {
     //sql내 검증된 쿼리 준비 -> sql내에서 변경되는 부분만 수정해줌
-    String sql = "delete from product where pid = :pid ";
+    String sql = "delete from product where pid = :id ";
 
-    return template.update(sql, Map.of("pid", pid)); //(쿼리, 파라미터)
+    return template.update(sql, Map.of("id", pid)); //(쿼리, 파라미터)
   }
 
-  /**
-   * 전체 삭제
-   * @return 삭제된 레코드 수
-   */
-  @Override
-  public int deleteAll() {
-    //1.sql내 검증된 쿼리 준비 -> sql내에서 변경되는 부분만 수정해줌
-    String sql = "delete from product ";
-
-    //2.파라미터 값을 매핑
-    Map<String, String> param = Map.of("", "");
-    int deletedRowCnt = template.update(sql, param);
-
-    return deletedRowCnt;
-  }
+//  /**
+//   * 전체 삭제
+//   * @return 삭제된 레코드 수
+//   */
+//  @Override
+//  public int deleteAll() {
+//    //1.sql내 검증된 쿼리 준비 -> sql내에서 변경되는 부분만 수정해줌
+//    String sql = "delete from product ";
+//
+//    //2.파라미터 값을 매핑
+//    Map<String, String> param = Map.of("", "");
+//    int deletedRowCnt = template.update(sql, param);
+//
+//    return deletedRowCnt;
+//  }
 
   /**
    * 전체 조회
@@ -185,15 +198,17 @@ public class ProductDAOImpl implements ProductDAO {
   }
 
   //등록된 상품수
-  @Override
-  public int countOfRecord() {
-    //1.sql내 검증된 쿼리 준비 -> sql내에서 변경되는 부분만 수정해줌
-    String sql = "select count(*) from product ";
+//  @Override
+//  public int countOfRecord() {
+//    //1.sql내 검증된 쿼리 준비 -> sql내에서 변경되는 부분만 수정해줌
+//    String sql = "select count(*) from product ";
+//
+//    //2.파라미터 값을 매핑
+//    LinkedHashMap<String, String> param = new LinkedHashMap<>();
+//    Integer rows = template.queryForObject(sql, param, Integer.class);
+//
+//    return rows;
+//  }
 
-    //2.파라미터 값을 매핑
-    LinkedHashMap<String, String> param = new LinkedHashMap<>();
-    Integer rows = template.queryForObject(sql, param, Integer.class);
 
-    return rows;
-  }
 }

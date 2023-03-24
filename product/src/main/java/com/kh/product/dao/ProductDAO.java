@@ -40,11 +40,11 @@ public interface ProductDAO {
   int delete(Long pid);
   //  (input)pid -> (output)삭제된 레코드 수
 
-  /**
-   * 전체 삭제
-   * @return 삭제한 레코드 건수
-   */
-  int deleteAll();
+//  /**
+//   * 전체 삭제
+//   * @return 삭제한 레코드 건수
+//   */
+//  int deleteAll();
 
   /**
    * 전체조회
@@ -60,10 +60,10 @@ public interface ProductDAO {
    */
   boolean isExist(Long pid);
 
-  /**
-   * 등록된 상품수
-   * @return 레코드 수
-   */
-  int countOfRecord();
+//  /**
+//   * 등록된 상품수
+//   * @return 레코드 수
+//   */
+//  int countOfRecord();
 
 }
