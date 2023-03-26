@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66c0f0cb-9cfe-4289-a49b-50134379d11d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/product.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/product/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/spl/admin.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product/sql/admin.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/spl/product.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product/sql/product.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/ProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/dao/ProductDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/svc/ProductSVC.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/svc/ProductSVC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/svc/ProductSVCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/svc/ProductSVCImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/form/SaveForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/form/SaveForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/form/UpdateForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/kh/product/web/form/UpdateForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/errors.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/errors.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/templates/product/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/templates/product/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/templates/product/detailForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/templates/product/detailForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/templates/product/saveForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/templates/product/saveForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/src/main/resources/templates/product/updateForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/resources/templates/product/updateForm.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NSYtxXQega4RMLBnQ3TQN6hyGn" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/javaedu10/product/product&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24260958&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Gradle.D:/javaedu10/product이전/product/build.gradle">
+    <configuration name="D:/javaedu10/product/product/build.gradle (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/product/build.gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="D:/javaedu10/product/product/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/product/build.gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="D:/javaedu10/product이전/product/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/product/build.gradle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.D:/javaedu10/product이전/product/build.gradle" />
+        <item itemvalue="Gradle.D:/javaedu10/product/product/build.gradle (1)" />
+        <item itemvalue="Gradle.D:/javaedu10/product/product/build.gradle" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66c0f0cb-9cfe-4289-a49b-50134379d11d" name="Changes" comment="" />
+      <created>1679659173044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679659173044</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

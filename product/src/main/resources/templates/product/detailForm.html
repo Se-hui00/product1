@@ -14,7 +14,7 @@
     <form action="" method="" th:object="${detailForm}">
       <div>
         <label for="" >상품번호</label>
-        <input type="text" name="productId" readonly th:field="*{productId}">
+        <input type="text" name="pid" readonly th:field="*{pid}">
       </div>
       <div>
         <label for="">상품명</label>
@@ -41,14 +41,14 @@
   const $btnDelete = document.getElementById('btnDelete');
   const $btnFindAll = document.getElementById('btnFindAll');
   //상품 아이디
-  const $productId = document.getElementById('productId');
+  const $pid = document.getElementById('pid');
 
   const btnUpdate_h = e=>{
-    globalThis.location.href = `/products/${$productId.value}/edit`;
+    globalThis.location.href = `/products/${$pid.value}/edit`;
   }
   const btnDelete_h = e=>{
     if(confirm('삭제 하시겠습니까?')){
-      globalThis.location.href = `/products/${$productId.value}/del`;
+      globalThis.location.href = `/products/${$pid.value}/del`;
     }
   }
   const btnFindAll_h = e=>{

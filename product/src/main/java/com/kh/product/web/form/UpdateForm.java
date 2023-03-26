@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class UpdateForm {
-
   private Long pid;
   @NotBlank
   private String pname;
