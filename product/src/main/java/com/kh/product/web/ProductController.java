@@ -53,7 +53,7 @@ public class ProductController {
     // 글로벌오류
     // 총액(상품수량 * 단가) 1억원 초과금지
     if(saveForm.getQuantity() * saveForm.getPrice() > 100_000_000L){
-      bindingResult.reject("totalprice",new String[]{"10000"},"");
+      bindingResult.reject("totalprice",new String[]{"1"},"");
     }
 
     if(bindingResult.hasErrors()){
@@ -143,6 +143,18 @@ public class ProductController {
 
     productSVC.delete(pid);
 
+    return "redirect:/products";
+  }
+
+  //선택삭제
+  @PostMapping("/items/del")
+  public String deleteParts(@RequestParam("chk") List<Long> pids) {
+    log.info("pids={}", pids);
+    if(pids.size() > 0) {
+      productSVC.deleteParts(pids);
+    }else {
+      return "product/all";
+    }
     return "redirect:/products";
   }
 

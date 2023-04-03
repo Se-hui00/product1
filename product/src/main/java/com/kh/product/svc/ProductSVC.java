@@ -14,6 +14,8 @@ public interface ProductSVC {
   int update(Long pid,Product product);
   //삭제
   int delete(Long pid);
+  //부분삭제
+  int deleteParts(List<Long> pids);
   //목록
   List<Product> findAll();
 

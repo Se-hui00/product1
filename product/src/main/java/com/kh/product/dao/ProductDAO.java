@@ -32,6 +32,12 @@ public interface ProductDAO {
    * @return 삭제된 레코드 수
    */
   int delete(Long pid);
+  /**
+   * 부분삭제
+   * @param pids
+   * @return
+   */
+  int deleteParts(List<Long> pids);
 
   /**
    * 전체 삭제
