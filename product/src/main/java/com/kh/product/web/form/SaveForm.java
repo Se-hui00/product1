@@ -12,7 +12,7 @@ public class SaveForm {
   @Positive   //양수값
   private Long quantity;
   @NotNull
-  @Positive
+  @Positive   //양수값
   @Min(1000)  //최소값
   private Long price;
 }
