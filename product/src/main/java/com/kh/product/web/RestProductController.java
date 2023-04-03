@@ -1,7 +1,7 @@
 package com.kh.product.web;
 
-import com.kh.product.dao.Product;
-import com.kh.product.svc.ProductSVC;
+import com.kh.product.domain.entity.Product;
+import com.kh.product.domain.product.svc.ProductSVC;
 import com.kh.product.web.exception.RestBizException;
 import com.kh.product.web.rest.SaveRest;
 import com.kh.product.web.rest.UpdateRest;
@@ -23,7 +23,7 @@ public class RestProductController {
   @PostMapping
   public RestResponse<Object> save(@RequestBody SaveRest saveRest){
     RestResponse<Object> res = null;
-    log.info("saveRest={}",saveRest);
+    log.info("saveRest={}", saveRest);
 
     //검증
 
@@ -49,11 +49,9 @@ public class RestProductController {
   public RestResponse<Object> findById(@PathVariable("id") Long pid){
     RestResponse<Object> res = null;
 
-    //1)상품존재유뮤판단
+    //1)상품 존재유무 판단
     if(!productSVC.isExist(pid)){
-//      res = RestResponse.createRestResponse("01", "해당 상품이 없습니다.", null);
-//      return res;
-      throw new RestBizException("99","해당 상품이 없습니다.");
+      throw new RestBizException("99","해당 상품이 존재하지 않습니다.");
     }
 
     Optional<Product> findedProduct = productSVC.findById(pid);
@@ -72,11 +70,9 @@ public class RestProductController {
     //검증
 
 
-    //1)상품존재유뮤판단
+    //1)상품 존재유무 판단
     if(!productSVC.isExist(pid)){
-//      res = RestResponse.createRestResponse("01", "해당 상품이 없습니다.", null);
-//      return res;
-      throw new RestBizException("99","해당 상품이 없습니다.");
+      throw new RestBizException("99","해당 상품이 존재하지 않습니다.");
     }
 
     //2)수정
@@ -96,17 +92,14 @@ public class RestProductController {
     return res;
   }
 
-
   //상품삭제
   @DeleteMapping("/{id}")
   public RestResponse<Object> delete(@PathVariable("id") Long pid){
     RestResponse<Object> res = null;
 
-    //1)상품존재유뮤판단
+    //1)상품 존재유무 판단
     if(!productSVC.isExist(pid)){
-//      res = RestResponse.createRestResponse("01", "해당 상품이 없습니다.", null);
-//      return res;
-      throw new RestBizException("99","해당 상품이 없습니다.");
+      throw new RestBizException("99","해당 상품이 존재하지 않습니다.");
     }
 
     //2)상품삭제
@@ -132,22 +125,20 @@ public class RestProductController {
     return res;
   }
 
+  //선택항목 삭제
+  @PostMapping(value="/items/del")
+  public  RestResponse<Object> deleteItems(@RequestBody List<Long> ids){
+    RestResponse<Object> res = null;
+    log.info("ids={}",ids);
+    if(ids.size() < 1) {
+      res = RestResponse.createRestResponse("01", "삭제항목 미선택", null);
+      return res;
+    }
 
-//  //선택항목삭제
-//  @PostMapping(value="/items/del")
-//  public  RestResponse<Object> deleteItems(@RequestBody List<Long> ids){
-//    RestResponse<Object> res = null;
-//    log.info("ids={}",ids);
-//    if(ids.size() < 1) {
-//      res = RestResponse.createRestResponse("01", "삭제항목 미선택", null);
-//      return res;
-//    }
-//
-//    int deletedRows = productSVC.deleteParts(ids);
-//    if(deletedRows > 0) {
-//      res = RestResponse.createRestResponse("00", "성공", deletedRows);
-//    }
-//    return res;
-//  }
-
+    int deletedRows = productSVC.deleteParts(ids);
+    if(deletedRows > 0) {
+      res = RestResponse.createRestResponse("00", "성공", deletedRows);
+    }
+    return res;
+  }
 }

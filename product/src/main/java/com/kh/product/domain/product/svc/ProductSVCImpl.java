@@ -1,7 +1,7 @@
-package com.kh.product.svc;
+package com.kh.product.domain.product.svc;
 
-import com.kh.product.dao.Product;
-import com.kh.product.dao.ProductDAO;
+import com.kh.product.domain.product.dao.ProductDAO;
+import com.kh.product.domain.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ProductSVCImpl implements ProductSVC{
+public class ProductSVCImpl implements ProductSVC {
 
   private final ProductDAO productDAO;
 

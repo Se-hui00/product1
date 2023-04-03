@@ -1,10 +1,10 @@
 package com.kh.product.web;
 
-import com.kh.product.dao.Product;
-import com.kh.product.svc.ProductSVC;
-import com.kh.product.web.form.DetailForm;
-import com.kh.product.web.form.SaveForm;
-import com.kh.product.web.form.UpdateForm;
+import com.kh.product.domain.entity.Product;
+import com.kh.product.domain.product.svc.ProductSVC;
+import com.kh.product.web.form.product.DetailForm;
+import com.kh.product.web.form.product.SaveForm;
+import com.kh.product.web.form.product.UpdateForm;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ import java.util.Optional;
 @Slf4j
 @Controller
 @RequestMapping("/products")
-@RequiredArgsConstructor  // final멤버 필드를 매개값으로 하는 생성자를 자동 생성
+@RequiredArgsConstructor  //final 멤버 필드를 매개값으로 하는 생성자를 자동 생성
 public class ProductController {
 
   private final ProductSVC productSVC;
@@ -30,7 +30,7 @@ public class ProductController {
   @GetMapping("/add")
   public String saveForm(Model model){
     SaveForm saveForm = new SaveForm();
-    model.addAttribute("saveForm",saveForm);
+    model.addAttribute("saveForm", saveForm);
     return "product/saveForm";
   }
 
@@ -41,7 +41,7 @@ public class ProductController {
       BindingResult bindingResult,  //검증 결과를 담는 객체
       RedirectAttributes redirectAttributes
   ){
-    log.info("saveForm={}",saveForm);
+    log.info("saveForm={}", saveForm);
 
     //데이터 검증
     //어노테이션 기반 검증
@@ -53,7 +53,7 @@ public class ProductController {
     // 글로벌오류
     // 총액(상품수량 * 단가) 1억원 초과금지
     if(saveForm.getQuantity() * saveForm.getPrice() > 100_000_000L){
-      bindingResult.reject("totalprice",new String[]{"1"},"");
+      bindingResult.reject("totalprice", new String[]{"1"},"");
     }
 
     if(bindingResult.hasErrors()){
@@ -68,7 +68,7 @@ public class ProductController {
     product.setPrice(saveForm.getPrice());
 
     Long savedpid = productSVC.save(product);
-    redirectAttributes.addAttribute("id",savedpid);
+    redirectAttributes.addAttribute("id", savedpid);
     return "redirect:/products/{id}/detail";
   }
 
@@ -87,7 +87,7 @@ public class ProductController {
     detailForm.setQuantity(product.getQuantity());
     detailForm.setPrice(product.getPrice());
 
-    model.addAttribute("detailForm",detailForm);
+    model.addAttribute("detailForm", detailForm);
     return "product/detailForm";
   }
 
@@ -106,7 +106,7 @@ public class ProductController {
     updateForm.setQuantity(product.getQuantity());
     updateForm.setPrice(product.getPrice());
 
-    model.addAttribute("updateForm",updateForm);
+    model.addAttribute("updateForm", updateForm);
     return "product/updateForm";
   }
 
@@ -120,7 +120,7 @@ public class ProductController {
   ){
     //데이터 검증
     if(bindingResult.hasErrors()){
-      log.info("bindingResult={}",bindingResult);
+      log.info("bindingResult={}", bindingResult);
       return "product/updateForm";
     }
 
@@ -133,7 +133,7 @@ public class ProductController {
 
     productSVC.update(pid, product);
 
-    redirectAttributes.addAttribute("id",pid);
+    redirectAttributes.addAttribute("id", pid);
     return "redirect:/products/{id}/detail";
   }
 
@@ -163,7 +163,7 @@ public class ProductController {
   public String findAll(Model model){
 
     List<Product> products = productSVC.findAll();
-    model.addAttribute("products",products);
+    model.addAttribute("products", products);
 
     return "product/all";
   }

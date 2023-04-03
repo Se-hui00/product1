@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>상품관리-CSR</title>
+  <title>상품관리</title>
   <style>
       /* { outline:1px solid red }*/
       .fieldError {
@@ -107,18 +107,6 @@
       <div>가격</div>
     </div>
     <div class="body">
-      <!-- <div>1</div>
-      <div>상품명1</div>
-      <div>10</div>
-      <div>1000</div>
-      <div>2</div>
-      <div>상품명2</div>
-      <div>20</div>
-      <div>2000</div>
-      <div>3</div>
-      <div>상품명3</div>
-      <div>30</div>
-      <div>3000</div> -->
       <p>가져오는중...</p>
     </div>
   </div>
@@ -233,7 +221,7 @@
           $productFields.quantity.value = res.data.quantity;
           $productFields.price.value = res.data.price;
         } else if (res.header.rtcd == '99') {
-          errMsg(`찾고자하는 상품이 없습니다.`);
+          errMsg(`찾고자 하는 상품이 없습니다.`);
           clearForm();
         } else {
           throw new Error(`${res.header.rtmsg}`);
@@ -381,7 +369,7 @@
       $all.addEventListener('click',all_h,false);
 
 
-      //삭제선택처리
+      //삭제 선택처리
       const $delPartsBtn = document.getElementById('delPartsBtn');
       const delParts = res => {
         if(res.header.rtcd == 0){
@@ -389,7 +377,7 @@
         }
       }
       const delParts_h = e =>{
-        if(!confirm('삭제하시겠습니까')) return;
+        if(!confirm('삭제하시겠습니까?')) return;
         const $chks = document.querySelectorAll('#productList input[name=chk]');
         const chks = Array.from($chks).filter(input=>input.checked )
                                       .map(input=>input.value)
@@ -400,6 +388,7 @@
             .catch(err => console.log(err.message));
       }
       $delPartsBtn.addEventListener('click',delParts_h,false);
+
       //목록 가져오기
       list_h();
     </script>

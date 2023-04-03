@@ -1,4 +1,6 @@
-package com.kh.product.dao;
+package com.kh.product.domain.product.dao;
+
+import com.kh.product.domain.entity.Product;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +26,7 @@ public interface ProductDAO {
    * @param product 상품
    * @return 수정된 레코드 수
    */
-  int update(Long pid,Product product);
+  int update(Long pid, Product product);
 
   /**
    * 삭제
@@ -32,6 +34,7 @@ public interface ProductDAO {
    * @return 삭제된 레코드 수
    */
   int delete(Long pid);
+
   /**
    * 부분삭제
    * @param pids
@@ -41,7 +44,7 @@ public interface ProductDAO {
 
   /**
    * 전체 삭제
-   * @return 삭제한 레코드 건수
+   * @return 삭제한 레코드 수
    */
   int deleteAll();
 
@@ -60,7 +63,7 @@ public interface ProductDAO {
 
   /**
    * 등록된 상품수
-   * @return 레코드 건수
+   * @return 레코드 수
    */
   int countOfRecord();
 }

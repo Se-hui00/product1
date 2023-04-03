@@ -15,6 +15,7 @@
       <table>
         <thead>
         <tr>
+          <th id="all">선택</th>
           <th>ID</th>
           <th>상품명</th>
           <th>수량</th>
@@ -23,6 +24,9 @@
         </thead>
         <tbody>
         <tr th:each="product : ${products}">
+          <th>
+            <input type="checkbox" name="chk" th:value="${product.pid}">
+          </th>
           <td th:text="${product.pid}">ID</td>
           <td >
             <a href="" th:href="@{/products/{id}/detail(id=${product.pid})}" th:text="${product.pname}"></a>
@@ -37,10 +41,8 @@
         <button id="btnAdd" th:text="#{button.add}" type="button">등록</button>
       </div>
     </form>
-
-    </div>
-
   </div>
+</div>
 <script>
     const $btnAdd = document.getElementById('btnAdd');
     const btnAdd_h = e => location.href = `/products/add`;
@@ -68,7 +70,7 @@
     }
     const del_h = e =>{
       e.preventDefault();
-      if(!confirm('삭제하시겠습니까')) return;
+      if(!confirm('삭제하시겠습니까?')) return;
       document.getElementById('frm').submit();
     }
     $btnDel.addEventListener('click',del_h,false);

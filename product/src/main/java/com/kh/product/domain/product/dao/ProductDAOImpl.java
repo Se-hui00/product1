@@ -1,5 +1,6 @@
-package com.kh.product.dao;
+package com.kh.product.domain.product.dao;
 
+import com.kh.product.domain.entity.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,7 +24,7 @@ import java.util.Optional;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class ProductDAOImpl implements ProductDAO{
+public class ProductDAOImpl implements ProductDAO {
 
   private final NamedParameterJdbcTemplate template;
 
@@ -36,8 +37,8 @@ public class ProductDAOImpl implements ProductDAO{
   @Override
   public Long save(Product product) {
     StringBuffer sb = new StringBuffer();
-    sb.append("insert into product(pid,pname,quantity,price) ");
-    sb.append("values(product_pid_seq.nextval, :pname, :quantity, :price) ");
+    sb.append("insert into product(pid,pname, quantity, price) ");
+    sb.append("     values(product_pid_seq.nextval, :pname, :quantity, :price) ");
 
     SqlParameterSource param = new BeanPropertySqlParameterSource(product);
     KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -77,7 +78,7 @@ public class ProductDAOImpl implements ProductDAO{
    * 수정
    *
    * @param pid 상품아이디
-   * @param product   상품
+   * @param product 상품
    * @return 수정된 레코드 수
    */
   @Override
@@ -87,7 +88,7 @@ public class ProductDAOImpl implements ProductDAO{
     sb.append("   set pname    = :pname, ");
     sb.append("       quantity = :quantity, ");
     sb.append("       price    = :price ");
-    sb.append(" where pid = :id ");
+    sb.append(" where pid      = :id ");
 
     SqlParameterSource param = new MapSqlParameterSource()
         .addValue("pname",product.getPname())
@@ -107,15 +108,16 @@ public class ProductDAOImpl implements ProductDAO{
   @Override
   public int delete(Long pid) {
     String sql = "delete from product where pid = :id ";
-    return template.update(sql,Map.of("id",pid));
+    return template.update(sql,Map.of("id", pid));
   }
 
   @Override
-  public int deleteParts(List<Long> productIds) {
-    String sql = "delete from product where product_id in ( :ids ) ";
-    Map<String, List<Long>> param = Map.of("ids", productIds);
+  public int deleteParts(List<Long> pids) {
+    String sql = "delete from product where pid in ( :ids ) ";
+    Map<String, List<Long>> param = Map.of("ids", pids);
     return template.update(sql,param);
   }
+
   @Override
   public int deleteAll() {
     String sql = "delete from product ";
@@ -168,13 +170,10 @@ public class ProductDAOImpl implements ProductDAO{
     };
   }
 
-  //자동매핑 : 테이블의 컬럼명과 자바객체 타입의 멤버필드가 같아야한다.
-  // BeanPropertyRowMapper.newInstance(자바객체타입)
-
   @Override
   public boolean isExist(Long pid) {
     boolean isExist = false;
-    String sql = "select count(*) from product where pid = :pid";
+    String sql = "select count(*) from product where pid = :pid ";
 
     Map<String,Long> param = Map.of("pid",pid);
     Integer integer = template.queryForObject(sql, param, Integer.class);
